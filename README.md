@@ -1,4 +1,3 @@
-```markdown
 # getPageBlockContent
 
 Сниппет для вывода блоков PageBlocks (Free версия) с других страниц в MODX.  
