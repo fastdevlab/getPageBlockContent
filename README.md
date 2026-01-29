@@ -1,46 +1,68 @@
-Сниппет getPageBlockContent для вывода блоков PageBlocks (Free версия) с других страниц в MODX (The getPageBlockContent snippet for displaying PageBlocks (Free version) from other pages in MODX).
-Параметры сниппета
-Параметр	Тип	По умолчанию	Описание
-resourceId	int	—	Обязательный. ID страницы-источника блоков
-blockIds	string	—	Обязательный. ID блоков через запятую: 4,7,21
-tpl	string	—	Чанк для всех блоков (переопределяет дефолтный)
-limit	int	0	Лимит блоков (0 = все)
-sortby	string	menuindex	Поле сортировки (menuindex, id)
-sortdir	string	ASC	Направление (ASC, DESC)
-wrapper	string	—	Обёртка: @INLINE <div class="blocks">{$output}</div>
-toPlaceholder	string	—	Сохранить в placeholder вместо вывода
-Примеры использования
-Прямой вызов @FILE:
+Вот готовый текст для `README.md` с правильной разметкой GitHub:
+
+```markdown
+# getPageBlockContent
+
+Сниппет для вывода блоков PageBlocks (Free версия) с других страниц в MODX.  
+The getPageBlockContent snippet for displaying PageBlocks (Free version) from other pages in MODX.
+
+## Параметры
+
+| Параметр | Тип | По умолчанию | Описание |
+|----------|-----|--------------|----------|
+| `resourceId` | int | — | **Обязательный**. ID страницы-источника блоков |
+| `blockIds` | string | — | **Обязательный**. ID блоков через запятую: `4,7,21` |
+| `tpl` | string | — | Чанк для всех блоков (переопределяет дефолтный) |
+| `limit` | int | 0 | Лимит блоков (`0` = все) |
+| `sortby` | string | `menuindex` | Поле сортировки (`menuindex`, `id`) |
+| `sortdir` | string | `ASC` | Направление (`ASC`, `DESC`) |
+| `wrapper` | string | — | Обёртка: `@INLINE <div class="blocks">{$output}</div>` |
+| `toPlaceholder` | string | — | Сохранить в placeholder вместо вывода |
+
+## Примеры использования
+
+### Прямой вызов @FILE:
+
+```fenom
 {'@FILE snippets/getPageBlockContent.php' | snippet : [
     'resourceId' => 10,
     'blockIds' => '4,7,21'
 ]}
-Через runSnippet:
+```
+
+Через `runSnippet`:
+```php
 {$_modx->runSnippet('@FILE snippets/getPageBlockContent.php', [
     'resourceId' => 10,
     'blockIds' => '4,7,21'
 ])}
-Примеры вызова обычного (не файлового) сниппета:
+```
 
-1. Базовый вывод (Fenom):
+### Примеры вызова обычного (не файлового) сниппета:
 
+#### 1. Базовый вывод (Fenom):
+
+```fenom
 {* Вывести блоки 4, 7, 21 со страницы 10 *}
 {'!getPageBlockContent' | snippet : [
     'resourceId' => 10,
     'blockIds' => '4,7,21'
 ]}
+```
 
-2. С кастомным чанком:
+#### 2. С кастомным чанком:
 
-{* Все блоки рендерить через чанк reviews_card *}
+```modx
 [[!getPageBlockContent? 
     &resourceId=`15` 
     &blockIds=`1,2,3,4,5`
     &tpl=`reviews_card`
 ]]
+```
 
-3. С лимитом и сортировкой:
+#### 3. С лимитом и сортировкой:
 
+```fenom
 {* Последние 3 блока (сортировка DESC) *}
 {'!getPageBlockContent' | snippet : [
     'resourceId' => 20,
@@ -48,18 +70,21 @@ toPlaceholder	string	—	Сохранить в placeholder вместо выво
     'limit' => 3,
     'sortdir' => 'DESC'
 ]}
+```
 
-4. С обёрткой:
+#### 4. С обёрткой:
 
-{* Блоки в карусели Bootstrap *}
+```modx
 [[!getPageBlockContent?
     &resourceId=`25`
     &blockIds=`5,6,7`
     &wrapper=`@INLINE <div class="carousel-inner">{$output}</div>`
 ]]
+```
 
-5. В placeholder:
+#### 5. В placeholder:
 
+```fenom
 {* Сохранить в переменную для использования позже *}
 {'!getPageBlockContent' | snippet : [
     'resourceId' => 30,
@@ -71,4 +96,13 @@ toPlaceholder	string	—	Сохранить в placeholder вместо выво
 <section class="testimonials">
     {$testimonials_html}
 </section>
-Более подробное описание и примеры использования здесь (A more detailed description and usage examples are here): https://modx.pro/solutions/25456
+```
+
+## Документация
+
+Более подробное описание и примеры использования:  
+A more detailed description and usage examples are here:  
+[https://modx.pro/solutions/25456](https://modx.pro/solutions/25456)
+```
+
+Просто скопируйте этот текст и вставьте в файл `README.md` в вашем репозитории GitHub.
