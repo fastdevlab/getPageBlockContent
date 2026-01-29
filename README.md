@@ -1,5 +1,3 @@
-Вот готовый текст для `README.md` с правильной разметкой GitHub:
-
 ```markdown
 # getPageBlockContent
 
@@ -103,6 +101,5 @@ The getPageBlockContent snippet for displaying PageBlocks (Free version) from ot
 Более подробное описание и примеры использования:  
 A more detailed description and usage examples are here:  
 [https://modx.pro/solutions/25456](https://modx.pro/solutions/25456)
-```
 
 Просто скопируйте этот текст и вставьте в файл `README.md` в вашем репозитории GitHub.
